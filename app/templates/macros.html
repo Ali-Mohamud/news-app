@@ -1,0 +1,26 @@
+{%  extends 'base.html'  %}
+{% macro displayNewsList(news_list) %}
+<div class="container-fluid">
+    <h3 class="header" style="text-align: center; font-weight: bold;">Top News Sources</h3>
+    <div class="row">
+        
+        {% for news in news_list %}
+        <div class="col-md-3">
+            <div class="card" style="margin-bottom: 15px; background-color: olivedrab;">
+                <div class="card-header">
+                    <h4 class="source-name" style="font-weight: bold; color: black; padding: 15px;">
+                        {{news.name}}
+                    </h4> 
+                </div>
+                <div class="card-body" style="min-height: 200px; padding-left: 15px; padding-right: 15px;">
+                    <h5 class="card-title"><a href="{{news.url}}" target="_blank">{{news.title}}</a></h5>
+                    <p class="card-text">{{news.description}}</p>
+                    <p>country: {{news.country}}</p>
+                    <p><a href="{{news.url}}" target="_blank" class="btn btn-primary">Read more from this source</a></p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endmacro %}
